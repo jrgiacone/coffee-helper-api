@@ -1,0 +1,14 @@
+{
+  "name": "cofeehelper",
+  "version": "1.0.0",
+  "description": "This api helps you select the perfect amount of coffee to water!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joshua Giacone",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
