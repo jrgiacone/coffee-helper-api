@@ -66,6 +66,9 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html')
 })
 
+app.get('/api/', (req, res) => {
+  res.sendFile(__dirname + '/api.index')
+})
 
 app.get('/api/:name', (req, res) => {
     console.log(req.params.name)
