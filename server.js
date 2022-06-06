@@ -7,7 +7,7 @@ const PORT = 3000
 app.use(cors())
 
 const coffeeMakers = {
-  'pour over':{
+  'v60':{
     'Difficulty': 'Hard',
     'Recommended Water (ml)': 360,
     'Recommended Coffee (g)': 22,
@@ -49,7 +49,7 @@ const coffeeMakers = {
     'Recommended Water Temp (C)': 99,
     'Required Materials': ['Hario v60', 'Paper Filters', 'Gooseneck Kettle', 'Groud Coffee']
   },
-  'cleaver dripper':{
+  'clever dripper':{
     'Difficulty': 'Medium',
     'Recommended Water (ml)': 250,
     'Recommended Coffee (g)': 18,
