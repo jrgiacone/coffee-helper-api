@@ -1,10 +1,10 @@
 const { response } = require('express')
 const express = require('express')
 const app = express ()
-// const cors = require('cors')
+const cors = require('cors')
 const PORT = 3000
 
-// app.use(cors())
+app.use(cors())
 
 const coffeeMakers = {
   'pour over':{
@@ -40,7 +40,7 @@ app.get('/api/:name', (req, res) => {
     }
 })
 
-app.listen(proccess.env.PORT || PORT, () =>{
+app.listen(process.env.PORT || PORT, () =>{
   console.log(`Listening on Port ${PORT}`)
 })
 
