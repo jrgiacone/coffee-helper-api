@@ -8,16 +8,53 @@ app.use(cors())
 
 const coffeeMakers = {
   'pour over':{
-    'difficulty': 'hard',
-    'required materials': ['Hario v60', 'Paper Filters', 'Gooseneck Kettle', 'Groud Coffee']
+    'Difficulty': 'Hard',
+    'Recommended Water (ml)': 360,
+    'Recommended Coffee (g)': 22,
+    'Recommended Water Temp (C)': 97,
+    'Required Materials': ['Hario v60', 'Paper Filters', 'Gooseneck Kettle', 'Groud Coffee']
   },
   'aeropress':{
-    'diffuculty': 'medium',
-    'required materials': ['Aeropress', 'Aeropress Filters', 'Hot Water', 'Ground Coffee']
+    'Difficulty': 'Medium',
+    'Recommended Water (ml)': 250,
+    'Recommended Coffee (g)': 15,
+    'Recommended Water Temp (C)': 95,
+    'Required Materials': ['Aeropress', 'Aeropress Filters', 'Hot Water', 'Ground Coffee']
   },
   'french press':{
-    'difficulty': 'easy',
-    'required materials': ['French Press', 'Ground Coffee', 'Hot water']
+    'Difficulty': 'Easy',
+    'Recommended Water (ml)': 540,
+    'Recommended Coffee (g)': 30,
+    'Recommended Water Temp (C)': 95,
+    'Required Materials': ['French Press', 'Ground Coffee', 'Hot water']
+  },
+  'chemex':{
+    'Difficulty': 'Medium',
+    'Recommended Water (ml)': 510,
+    'Recommended Coffee (g)': 30,
+    'Recommended Water Temp (C)': 97,
+    'Required Materials': ['Hario v60', 'Paper Filters', 'Gooseneck Kettle', 'Groud Coffee']
+  },
+  'moka pot':{
+    'Difficulty': 'Medium',
+    'Recommended Water (ml)': 220,
+    'Recommended Coffee (g)': 15,
+    'Recommended Water Temp (C)': 99,
+    'Required Materials': ['Hario v60', 'Paper Filters', 'Gooseneck Kettle', 'Groud Coffee']
+  },
+  'vaccum pot':{
+    'Difficulty': 'Hard',
+    'Recommended Water (ml)': 330,
+    'Recommended Coffee (g)': 20,
+    'Recommended Water Temp (C)': 99,
+    'Required Materials': ['Hario v60', 'Paper Filters', 'Gooseneck Kettle', 'Groud Coffee']
+  },
+  'cleaver dripper':{
+    'Difficulty': 'Medium',
+    'Recommended Water (ml)': 250,
+    'Recommended Coffee (g)': 18,
+    'Recommended Water Temp (C)': 97,
+    'Required Materials': ['Hario v60', 'Paper Filters', 'Gooseneck Kettle', 'Groud Coffee']
   },
   'Not Found':{
     'Error': 'Currently does not exist in system'
