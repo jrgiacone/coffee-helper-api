@@ -11,56 +11,70 @@ const coffeeMakers = {
     'Name': 'v60',
     'Difficulty': 'Hard',
     'Recommended Water (ml)': 360,
-    'Recommended Coffee (g)': 22,
     'Recommended Water Temp (C)': 97,
+    'Recommended Coffee (g)': 22,
+    'Minimum Coffee (g)': 15,
+    'Maximum Coffee (g)': 30,
     'Required Materials': ['Hario v60', 'Paper Filters', 'Gooseneck Kettle', 'Groud Coffee']
   },
   'aeropress':{
     'Name': 'Aeropress',
     'Difficulty': 'Medium',
     'Recommended Water (ml)': 250,
-    'Recommended Coffee (g)': 15,
     'Recommended Water Temp (C)': 95,
+    'Recommended Coffee (g)': 15,
+    'Minimum Coffee (g)': 10,
+    'Maximum Coffee (g)': 25,
     'Required Materials': ['Aeropress', 'Aeropress Filters', 'Hot Water', 'Ground Coffee']
   },
   'french press':{
     'Name': 'French Press',
     'Difficulty': 'Easy',
     'Recommended Water (ml)': 540,
-    'Recommended Coffee (g)': 30,
     'Recommended Water Temp (C)': 95,
+    'Recommended Coffee (g)': 30,
+    'Minimum Coffee (g)': 10,
+    'Maximum Coffee (g)': 55,
     'Required Materials': ['French Press', 'Ground Coffee', 'Hot water']
   },
   'chemex':{
     'Name': 'Chemex',
     'Difficulty': 'Medium',
     'Recommended Water (ml)': 510,
-    'Recommended Coffee (g)': 30,
     'Recommended Water Temp (C)': 97,
+    'Recommended Coffee (g)': 30,
+    'Minimum Coffee (g)': 20,
+    'Maximum Coffee (g)': 44,
     'Required Materials': ['Hario v60', 'Paper Filters', 'Gooseneck Kettle', 'Groud Coffee']
   },
   'moka pot':{
     'Name': 'Moka Pot',
     'Difficulty': 'Medium',
     'Recommended Water (ml)': 220,
-    'Recommended Coffee (g)': 15,
     'Recommended Water Temp (C)': 99,
+    'Recommended Coffee (g)': 15,
+    'Minimum Coffee (g)': 10,
+    'Maximum Coffee (g)': 20,
     'Required Materials': ['Hario v60', 'Paper Filters', 'Gooseneck Kettle', 'Groud Coffee']
   },
   'vaccum pot':{
     'Name': 'Vaccum Pot',
     'Difficulty': 'Hard',
     'Recommended Water (ml)': 330,
-    'Recommended Coffee (g)': 20,
     'Recommended Water Temp (C)': 99,
+    'Recommended Coffee (g)': 20,
+    'Minimum Coffee (g)': 15,
+    'Maximum Coffee (g)': 40,
     'Required Materials': ['Hario v60', 'Paper Filters', 'Gooseneck Kettle', 'Groud Coffee']
   },
   'clever dripper':{
     'Name': 'Clever Dripper',
     'Difficulty': 'Medium',
     'Recommended Water (ml)': 250,
-    'Recommended Coffee (g)': 18,
     'Recommended Water Temp (C)': 97,
+    'Recommended Coffee (g)': 18,
+    'Minimum Coffee (g)': 15,
+    'Maximum Coffee (g)': 40,
     'Required Materials': ['Hario v60', 'Paper Filters', 'Gooseneck Kettle', 'Groud Coffee']
   },
   'Not Found':{
