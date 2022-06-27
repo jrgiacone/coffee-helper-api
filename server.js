@@ -112,9 +112,9 @@ app.get('/api/:name', (req, res) => {
     }
 })
 
-app.post('/addJournal', (req, res) => {
-  db.collection('coffee')
-})
+// app.post('/addJournal', (req, res) => {
+//   db.collection('coffee')
+// })
 
 app.listen(process.env.PORT || PORT, () =>{
   console.log(`Listening on Port ${PORT}`)
