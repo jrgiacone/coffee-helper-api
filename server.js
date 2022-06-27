@@ -1,10 +1,10 @@
 const express = require('express')
 const app = express()
 const MongoClient = require('mongodb').MongoClient
-const cors = require('cors')
+// const cors = require('cors')
 const PORT = 3000
 require('dotenv').config()
-app.use(cors())
+// app.use(cors())
 
 
 let db,
