@@ -1,7 +1,3 @@
-let PASS = 'jg091398'
-let USER = 'jrgiacone'
-
-
 // const { response, request } = require('express')
 const express = require('express')
 const app = express()
@@ -16,18 +12,12 @@ let db,
     dbName = 'CoffeeHelper'
 
 
-// MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
-//     .then(client => {
-//         console.log(`Connected to ${dbName} Database`)
-//         db = client.db(dbName)
-//     })
-
-
-MongoClient.connect(`mongodb+srv://${USER}:${PASS}@cluster0.ngzso.mongodb.net/?retryWrites=true&w=majority`, { useUnifiedTopology: true })
+MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
     .then(client => {
         console.log(`Connected to ${dbName} Database`)
         db = client.db(dbName)
     })
+
 
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
