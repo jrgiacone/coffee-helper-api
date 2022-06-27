@@ -12,7 +12,7 @@ let db,
     dbName = 'CoffeeHelper'
 
 
-MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
+MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true,useNewUrlParser: true })
     .then(client => {
         console.log(`Connected to ${dbName} Database`)
         db = client.db(dbName)
