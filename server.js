@@ -126,18 +126,22 @@ app.get('/api/:name', (req, res) => {
     }
 })
 
+// app.post('/addJournal', (req, res) => {
+//   console.log(req.body.notes)
+//   db.collection('coffee').insertOne({notes: req.body.notes})
+//   .then(result => {
+//     console.log('note added')
+//     res.redirect('/')
+//   })
+//   .catch(error => console.error(error))
+// })
+
 app.post('/addJournal', (req, res) => {
   console.log(req.body.notes)
-  db.collection('coffee').insertOne({notes: req.body.notes})
-  .then(result => {
-    console.log('note added')
-    res.redirect('/')
-  })
-  .catch(error => console.error(error))
 })
 
 // app.post('/addJournal', (req, res) => {
-//     db.collection('rappers').insertOne({stageName: req.body.stageName,
+//     db.collection('coffee').insertOne({stageName: req.body.stageName,
 //     birthName: request.body.birthName, likes: 0})
 //     .then(result => {
 //         console.log('Rapper Added')
