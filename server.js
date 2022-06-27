@@ -131,7 +131,7 @@ app.post('/addJournal', (req, res) => {
   db.collection('coffee').insertOne({notes: req.body.notes})
   .then(result => {
     console.log('note added')
-    res.redirect('./pages/cofee.html')
+    res.redirect('/')
   })
   .catch(error => console.error(error))
 })
