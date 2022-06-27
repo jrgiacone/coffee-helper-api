@@ -126,19 +126,19 @@ app.get('/api/:name', (req, res) => {
     }
 })
 
-// app.post('/addJournal', (req, res) => {
-//   console.log(req.body.notes)
-//   db.collection('coffee').insertOne({notes: req.body.notes})
-//   .then(result => {
-//     console.log('note added')
-//     res.redirect('/')
-//   })
-//   .catch(error => console.error(error))
-// })
-
 app.post('/addJournal', (req, res) => {
-  console.log('working')
+  console.log(req.body.notes)
+  db.collection('coffee').insertOne({notes: req.body.notes})
+  .then(result => {
+    console.log('note added')
+    res.redirect('/')
+  })
+  .catch(error => console.error(error))
 })
+
+// app.post('/addJournal', (req, res) => {
+//   console.log('working')
+// })
 
 // app.post('/addJournal', (req, res) => {
 //     db.collection('coffee').insertOne({stageName: req.body.stageName,
