@@ -2,9 +2,9 @@ const express = require('express')
 const app = express()
 const MongoClient = require('mongodb').MongoClient
 const cors = require('cors')
+app.use(cors())
 const PORT = 3000
 require('dotenv').config()
-app.use(cors())
 
 
 let db,
@@ -17,6 +17,7 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true})
         console.log(`Connected to ${dbName} Database`)
         db = client.db(dbName)
     })
+
 
 // MongoClient.connect(`mongodb+srv://jrgiacone:jg091398@cluster0.ngzso.mongodb.net/?retryWrites=true&w=majority` , { useUnifiedTopology: true})
 //     .then(client => {
