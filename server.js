@@ -2,6 +2,7 @@
 const express = require('express')
 const app = express()
 // const MongoClient = require('mongodb').MongoClient
+const MongoClient = require('mongodb').MongoClient
 const cors = require('cors')
 const PORT = 3000
 
@@ -15,6 +16,12 @@ let db,
 //     console.log(`Connected to ${dbName} Database`)
 //     db = client.db(dbName)
 //   })
+MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
+    .then(client => {
+        console.log(`Connected to ${dbName} Database`)
+        db = client.db(dbName)
+    })
+
 
 app.use(cors())
 
