@@ -125,12 +125,22 @@ app.get('/api/:name', (req, res) => {
 
 app.post('/addJournal', (req, res) => {
   db.collection('coffee').insertOne({notes: req.body.notes})
-  .then(res => {
+  .then(result => {
     console.log('note added')
     res.redirect('/')
   })
   .catch(error => console.error(error))
 })
+
+// app.post('/addJournal', (req, res) => {
+//     db.collection('rappers').insertOne({stageName: req.body.stageName,
+//     birthName: request.body.birthName, likes: 0})
+//     .then(result => {
+//         console.log('Rapper Added')
+//         res.redirect('/')
+//     })
+//     .catch(error => console.error(error))
+// })
 
 app.listen(process.env.PORT || PORT, () =>{
   console.log(`Listening on Port ${PORT}`)
