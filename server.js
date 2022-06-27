@@ -7,9 +7,14 @@ const cors = require('cors')
 const PORT = 3000
 
 
+// let db,
+//     dbConnectionStr = process.env.DB_STRING,
+//     dbName = 'coffee'
+
 let db,
     dbConnectionStr = process.env.DB_STRING,
-    dbName = 'coffee'
+    dbName = 'coffee-helper'
+
 
 // MongoClient.connect(dbConnectionStr, {useUnifiedTopology: true})
 //   .then(client => {
