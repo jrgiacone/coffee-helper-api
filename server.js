@@ -7,15 +7,15 @@ const PORT = 3000
 
 app.use(cors())
 
-let db,
-    dbConnectionStr = process.env.DB_STRING,
-    dbName = 'coffee'
+// let db,
+//     dbConnectionStr = process.env.DB_STRING,
+//     dbName = 'coffee'
 
-MongoClient.connect(dbConnectionStr, {useUnifiedTopology: True})
-  .then(client => {
-    console.log(`Connected to ${dbName} Database`)
-    db = client.db(dbName)
-  })
+// MongoClient.connect(dbConnectionStr, {useUnifiedTopology: True})
+//   .then(client => {
+//     console.log(`Connected to ${dbName} Database`)
+//     db = client.db(dbName)
+//   })
 
 const coffeeMakers = {
   'v60':{
