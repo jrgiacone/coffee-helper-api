@@ -25,6 +25,10 @@ MongoClient.connect(`mongodb+srv://jrgiacone:jg091398@cluster0.ngzso.mongodb.net
         db = client.db(dbName)
     })
 
+app.use(express.static('public'))
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
+
 
 app.use(cors())
 
