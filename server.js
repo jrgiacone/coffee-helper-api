@@ -1,10 +1,10 @@
-// const { response, request } = require('express')
 const express = require('express')
 const app = express()
-// const MongoClient = require('mongodb').MongoClient
 const MongoClient = require('mongodb').MongoClient
 const cors = require('cors')
 const PORT = 3000
+require('dotenv').config()
+app.use(cors())
 
 
 let db,
@@ -24,7 +24,6 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
 
-app.use(cors())
 
 const coffeeMakers = {
   'v60':{
