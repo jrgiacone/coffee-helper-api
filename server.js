@@ -126,6 +126,7 @@ app.get('/api/:name', (req, res) => {
 })
 
 app.post('/addJournal', (req, res) => {
+  console.log(req.body.notes)
   db.collection('coffee').insertOne({notes: req.body.notes})
   .then(result => {
     console.log('note added')
