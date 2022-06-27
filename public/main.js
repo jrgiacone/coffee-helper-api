@@ -1,5 +1,5 @@
 
-if(window.location.pathname === '/index.html'){
+if(window.location.pathname === '/'){
   // alert(location)
   document.addEventListener('click', function(e) {
     e = e || window.event;
@@ -10,7 +10,7 @@ if(window.location.pathname === '/index.html'){
 }
 
 
-if(window.location.pathname !== '/index.html'){
+if(window.location.pathname !== '/'){
 
   window.addEventListener('DOMContentLoaded', apiRequest)
 
