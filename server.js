@@ -12,7 +12,14 @@ let db,
     dbName = 'CoffeeHelper'
 
 
-MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
+// MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
+//     .then(client => {
+//         console.log(`Connected to ${dbName} Database`)
+//         db = client.db(dbName)
+//     })
+
+
+MongoClient.connect(`mongodb+srv://jrgiacone:jg091398@cluster0.ngzso.mongodb.net/?retryWrites=true&w=majority`, { useUnifiedTopology: true })
     .then(client => {
         console.log(`Connected to ${dbName} Database`)
         db = client.db(dbName)
