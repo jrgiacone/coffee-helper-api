@@ -122,6 +122,7 @@ app.post('/addJournal', (req, res) => {
     console.log('note added')
     res.redirect('/')
   })
+  .catch(error => console.error(error))
 })
 
 app.listen(process.env.PORT || PORT, () =>{
