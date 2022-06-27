@@ -1,7 +1,7 @@
-const { response, request } = require('express')
+// const { response, request } = require('express')
 const express = require('express')
-const app = express ()
-const MongoClient = require('mongodb').MongoClient
+const app = express()
+// const MongoClient = require('mongodb').MongoClient
 const cors = require('cors')
 const PORT = 3000
 
@@ -10,11 +10,11 @@ let db,
     dbConnectionStr = process.env.DB_STRING,
     dbName = 'coffee'
 
-MongoClient.connect(dbConnectionStr, {useUnifiedTopology: true})
-  .then(client => {
-    console.log(`Connected to ${dbName} Database`)
-    db = client.db(dbName)
-  })
+// MongoClient.connect(dbConnectionStr, {useUnifiedTopology: true})
+//   .then(client => {
+//     console.log(`Connected to ${dbName} Database`)
+//     db = client.db(dbName)
+//   })
 
 app.use(cors())
 
@@ -114,10 +114,10 @@ app.get('/api/:name', (req, res) => {
 })
 
 app.post('/addJournal', (req, res) => {
-  db.collection('coffee').insertOne({notes: request.body.notes})
+  db.collection('coffee').insertOne({notes: req.body.notes})
   .then(res => {
     console.log('note added')
-    response.redirect('/')
+    res.redirect('/')
   })
 })
 
