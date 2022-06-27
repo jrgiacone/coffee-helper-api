@@ -137,7 +137,7 @@ app.get('/api/:name', (req, res) => {
 // })
 
 app.post('/addJournal', (req, res) => {
-  console.log(req.body.notes)
+  console.log('working')
 })
 
 // app.post('/addJournal', (req, res) => {
