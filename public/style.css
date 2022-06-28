@@ -60,3 +60,14 @@ form{
   position: absolute;
   top: 40%;
 }
+
+section{
+  display: flex;
+  flex-direction: row;
+}
+
+a{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}

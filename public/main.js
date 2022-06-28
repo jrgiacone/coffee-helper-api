@@ -1,12 +1,23 @@
 
 if(window.location.pathname === '/'){
-  // alert(location)
   document.addEventListener('click', function(e) {
     e = e || window.event;
     let target = e.target,
-        text = target.textContent || target.innerText;   
+        text = target.innerText || target.alt;   
         sessionStorage.setItem("selection", text)
 }, false);
+
+  // document.querySelector('img').addEventListener("click", function(e) {
+  //   e = e || window.event;
+  //   let target = e.target,
+  //   text = target.closest('a').text();
+  //   alert(text)
+  // })
+
+
+  // const el = document.querySelector('img')
+  // alert(el.closest('a').innerHTML)
+
 }
 
 

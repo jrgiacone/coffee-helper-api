@@ -82,8 +82,8 @@ const coffeeMakers = {
     'Maximum Coffee (g)': 20,
     'Required Materials': ['Hario v60', 'Paper Filters', 'Gooseneck Kettle', 'Groud Coffee']
   },
-  'vaccum pot':{
-    'Name': 'Vaccum Pot',
+  'vacuum pot':{
+    'Name': 'Vacuum Pot',
     'Difficulty': 'Hard',
     'Recommended Water (ml)': 330,
     'Recommended Water Temp (C)': 99,
