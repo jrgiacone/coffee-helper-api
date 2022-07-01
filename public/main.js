@@ -33,8 +33,8 @@ if(window.location.pathname !== '/'){
   async function apiRequest(){
       // let name = document.querySelector('title').innerHTML.toLowerCase()
       try{
-          const response = await fetch(`https://coffee-helper-api.herokuapp.com/api/${sessionStorage.getItem("selection")}`)
-          // const response = await fetch(`https://localhost:3000/api/${sessionStorage.getItem("selection")}`)
+          // const response = await fetch(`https://coffee-helper-api.herokuapp.com/api/${sessionStorage.getItem("selection")}`)
+          const response = await fetch(`http://localhost:3000/api/${sessionStorage.getItem("selection")}`)
           const data = await response.json()
           
           max = data['Maximum Coffee (g)']
