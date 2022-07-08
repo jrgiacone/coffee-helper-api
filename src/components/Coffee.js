@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
-import Slider from "./components/Slider";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Slider from "./Slider";
 
 const Coffee = () => {
-  let max = sessionStorage.getItem("max");
-  let min = sessionStorage.getItem("min");
-  let rec = sessionStorage.getItem("rec");
   const [name, setName] = useState();
+  const [max, setMax] = useState();
+  const [min, setMin] = useState();
+  const [rec, setRec] = useState();
 
   useEffect(() => {
     const fetchApi = async () => {
@@ -16,10 +15,10 @@ const Coffee = () => {
       );
       const data = await res.json();
       console.log(data);
-      window.sessionStorage.setItem("max", data["Maximum Coffee (g)"]);
-      window.sessionStorage.setItem("min", data["Minimum Coffee (g)"]);
-      window.sessionStorage.setItem("rec", data["Recommended Coffee (g)"]);
       setName(data['Name'])
+      setMax(data['Maximum Coffee (g)']);
+      setMin(data['Minimum Coffee (g)']);
+      setRec(data['Recommended Coffee (g)']);
     };
 
     fetchApi();
