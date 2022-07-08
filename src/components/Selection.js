@@ -1,12 +1,16 @@
+// import Coffee from "../Coffee";
+import { Link } from 'react-router-dom'
+
 const Selection = () => {
   return (
     <section>
-      <a href="/coffee">v60</a>
-      <a href="/coffee">Aeropress</a>
-      <a href="/coffee">Chemex</a>
-      <a href="/coffee">French Press</a>
-      <a href="/coffee">Moka Pot</a>
-      <a href="/coffee">Clever Dripper</a>
+      <Link to="/coffee" onClick={() => sessionStorage.setItem('selection', 'v60')}>v60</Link>
+      <Link to="/coffee" onClick={() => sessionStorage.setItem('selection', 'aeropress')}>Aeropress</Link>
+      <Link to="/coffee" onClick={() => sessionStorage.setItem('selection', 'chemex')}>Chemex</Link>
+      <Link to="/coffee" onClick={() => sessionStorage.setItem('selection', 'french press')}>French Press</Link>
+      <Link to="/coffee" onClick={() => sessionStorage.setItem('selection', 'moka pot')}>Moka Pot</Link>
+      <Link to="/coffee" onClick={() => sessionStorage.setItem('selection', 'clever dripper')}>Clever Dripper</Link>
+      <Link to="/coffee" onClick={() => sessionStorage.setItem('selection', 'vacuum pot')}>Vacuum Pot</Link>
     </section>
   );
 };

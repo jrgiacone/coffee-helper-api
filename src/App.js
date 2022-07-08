@@ -1,24 +1,25 @@
 // import { useState, useEffect } from "react"
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 // import Nav from "./components/Nav";
 import Coffee from "./Coffee";
 import Selection from "./components/Selection";
+// import { useCallback } from "react";
 // import CoffeeMakers from "./components/coffeeMakers";
 
 function App() {
   // const [coffee] = useState([])
 
-  useEffect(() => {
-    const fetchTasks = async () => {
-      const res = await fetch("http://localhost:3001/api");
-      const data = await res.json();
-      console.log(data);
-    };
+  // useEffect(() => {
+  //   const fetchApi = async () => {
+  //     const res = await fetch("http://localhost:3001/api");
+  //     const data = await res.json();
+  //     console.log(data);
+  //   };
 
-    fetchTasks();
-  }, []);
+  //   fetchApi();
+  // }, []);
 
   return (
     <Router>
