@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 const Slider = ({max, min, rec}) => {
   // console.log({max})
 
-  const [value, onChange] = useState();
+  const [value, onChange] = useState(rec);
 
   useEffect(() => {
     onChange(rec);
