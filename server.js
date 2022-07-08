@@ -3,7 +3,7 @@ const app = express()
 const MongoClient = require('mongodb').MongoClient
 const cors = require('cors')
 app.use(cors())
-const PORT = 3000
+const PORT = 3001
 require('dotenv').config()
 
 
@@ -113,7 +113,8 @@ app.get('/', (req, res) => {
 })
 
 app.get('/api/', (req, res) => {
-  res.sendFile(__dirname + '/api.html')
+  // res.sendFile(__dirname + '/api.html')
+  res.json(coffeeMakers)
 })
 
 app.get('/api/:name', (req, res) => {
