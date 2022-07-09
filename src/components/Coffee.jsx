@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Slider from "./Slider";
+import StopWatch from "./StopWatch";
 // import Selection from "./Selection";
 
 const Coffee = ({maker}) => {
@@ -32,6 +33,7 @@ const Coffee = ({maker}) => {
     <div>
       <h4>{name}</h4>
       <Slider max={max} min={min} rec={rec} />
+      <StopWatch />
       <Link to="/">Go Back</Link>
     </div>
   );
