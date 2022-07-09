@@ -1,18 +1,23 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Slider from "./Slider";
+// import Selection from "./Selection";
 
-const Coffee = () => {
-  const [name, setName] = useState();
-  const [max, setMax] = useState();
-  const [min, setMin] = useState();
-  const [rec, setRec] = useState();
+const Coffee = ({maker}) => {
+  const [name, setName] = useState('');
+  const [max, setMax] = useState('');
+  const [min, setMin] = useState('');
+  const [rec, setRec] = useState('');
 
   useEffect(() => {
     const fetchApi = async () => {
       const res = await fetch(
         `http://localhost:3001/api/${sessionStorage.getItem("selection")}`
       );
+      
+      // const res = await fetch(
+      //   `http://localhost:3001/api/${maker}}`
+      // );
       const data = await res.json();
       console.log(data);
       setName(data['Name'])

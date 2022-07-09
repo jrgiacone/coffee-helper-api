@@ -1,9 +1,9 @@
 // import Coffee from "../Coffee";
-import { useState } from "react";
+// import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Selection = () => {
-  // const [maker, newMaker] = useState();
+  // const [maker, newMaker] = useState('coffee');
   return (
     <section>
       <Link
