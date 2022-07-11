@@ -9,6 +9,8 @@ const Coffee = ({maker}) => {
   const [max, setMax] = useState('');
   const [min, setMin] = useState('');
   const [rec, setRec] = useState('');
+  const [recWater, setRecWater] = useState('');
+  const [ratio, setRatio] = useState(14);
 
   useEffect(() => {
     const fetchApi = async () => {
@@ -24,15 +26,27 @@ const Coffee = ({maker}) => {
       setName(data['Name'])
       setMax(data['Maximum Coffee (g)']);
       setMin(data['Minimum Coffee (g)']);
-      setRec(data['Recommended Coffee (g)']);
+      setRec(data['Recommended Coffee (g)']);   
+      
     };
 
     fetchApi();
   }, []);
+
+
+  useEffect(() => {
+    setRecWater(ratio*rec)
+  }, [rec,ratio])
+
+  const getSliderValue = (value) => {
+    setRecWater(ratio * value); 
+  }
+
   return (
     <div>
       <h4>{name}</h4>
-      <Slider max={max} min={min} rec={rec} />
+      <Slider max={max} min={min} rec={rec} getSliderValue={(value) => getSliderValue(value)}/>
+      <h6>{recWater}</h6>
       <StopWatch />
       <Link to="/">Go Back</Link>
     </div>

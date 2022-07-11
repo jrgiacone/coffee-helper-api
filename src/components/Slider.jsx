@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-const Slider = ({max, min, rec}) => {
+const Slider = ({max, min, rec, getSliderValue}) => {
   // console.log({max})
 
   const [value, onChange] = useState('');
@@ -9,10 +9,14 @@ const Slider = ({max, min, rec}) => {
     onChange(rec);
   }, [rec])
 
+  const onRelease = async () => {
+    getSliderValue(value)
+  }
+
   return(
     <div className="slide">
       <input type="range" min={min} max={max} value={value} className="slider"
-      onChange={({target: { value: radius }}) => {onChange(radius)}} />
+      onChange={({target: { value: radius }}) => {onChange(radius)}} onClick={() => onRelease()}/>
       <p><span className="value">{value}</span></p>
       <p><span className="min">{min}</span></p>
       <p><span className="max">{max}</span></p>
