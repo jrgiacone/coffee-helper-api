@@ -9,7 +9,7 @@ const Slider = ({max, min, rec, getSliderValue}) => {
     onChange(rec);
   }, [rec])
 
-  const onRelease = async () => {
+  const onRelease = () => {
     getSliderValue(value)
   }
 

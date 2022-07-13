@@ -10,7 +10,8 @@ const Coffee = ({maker}) => {
   const [min, setMin] = useState('');
   const [rec, setRec] = useState('');
   const [recWater, setRecWater] = useState('');
-  const [ratio, setRatio] = useState(14);
+  const [ratio, setRatio] = useState(1/14);
+  const [value, setValue] = useState('');
 
   useEffect(() => {
     const fetchApi = async () => {
@@ -33,18 +34,33 @@ const Coffee = ({maker}) => {
     fetchApi();
   }, []);
 
+  useEffect(() => {
+    setValue(rec)
+  }, [rec])
+
 
   useEffect(() => {
-    setRecWater(ratio*rec)
-  }, [rec,ratio])
+    setRecWater(1/ratio*value)
+  }, [value,ratio])
+
+  // const getSliderValue = (value) => {
+  //   setValue(value)
+  // }
 
   const getSliderValue = (value) => {
-    setRecWater(ratio * value); 
+    setValue(value)
   }
+
 
   return (
     <div>
       <h4>{name}</h4>
+      <select>
+        <option onClick={() => setRatio(1/14)} value="1/14">1/14 ml</option>
+        <option onClick={() => setRatio(1/15)} value="1/14">1/15 ml</option>
+        <option onClick={() => setRatio(1/16)} value="1/14">1/16 ml</option>
+        <option onClick={() => setRatio(1/17)} value="1/14">1/17 ml</option>
+      </select>
       <Slider max={max} min={min} rec={rec} getSliderValue={(value) => getSliderValue(value)}/>
       <h6>{recWater}</h6>
       <StopWatch />
