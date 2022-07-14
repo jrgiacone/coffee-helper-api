@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Slider from "./Slider";
 import StopWatch from "./StopWatch";
+import Form from "./Form";
 // import Selection from "./Selection";
 
 const Coffee = ({maker}) => {
@@ -23,7 +24,7 @@ const Coffee = ({maker}) => {
       //   `http://localhost:3001/api/${maker}}`
       // );
       const data = await res.json();
-      console.log(data);
+      // console.log(data);
       setName(data['Name'])
       setMax(data['Maximum Coffee (g)']);
       setMin(data['Minimum Coffee (g)']);
@@ -64,6 +65,7 @@ const Coffee = ({maker}) => {
       <Slider max={max} min={min} rec={rec} getSliderValue={(value) => getSliderValue(value)}/>
       <h6>{recWater}</h6>
       <StopWatch />
+      <Form />
       <Link to="/">Go Back</Link>
     </div>
   );

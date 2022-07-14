@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const MongoClient = require('mongodb').MongoClient
 const cors = require('cors')
+const { response } = require('express')
 app.use(cors())
 const PORT = 3001
 require('dotenv').config()
@@ -127,12 +128,40 @@ app.get('/api/:name', (req, res) => {
     }
 })
 
-app.post('/addJournal', (req, res) => {
-  console.log(req.body.notes)
-  db.collection('coffee').insertOne({notes: req.body.notes})
+// app.get('/getJournal'), (req, res) => {
+//   db.collection('coffee').find({}).toArray()
+//   .then((notes) => {
+//     res.send(notes)
+//     // console.log(notes)
+//     // res.json(notes)
+//     // res.json(notes)
+//   }).catch(error => console.error(error))
+// }
+
+app.get('/getJournal', (req, res) => {
+  db.collection('coffee').find({}).toArray()
   .then(result => {
-    console.log('note added')
-    res.redirect('/coffee.html')
+    // res.send(result)
+    res.json(result)
+  })
+})
+
+// app.get('/getJournal', (req, res) => {
+//   db.collection('coffee').find({}).toArray((err, result) => {
+//     if(err) throw err
+//     res.send(result)
+//   })
+// })
+
+app.post('/addJournal', (req, res) => {
+  console.log('request recieved')
+  db.collection('coffee').insertOne({notes: req.body.notes})
+  .then(() => {
+    res.status(201).json('This was added!')
+    // console.log('note added')
+    // console.log(res.json())
+    // res.json()
+    // res.redirect('/coffee.html')
   })
   .catch(error => console.error(error))
 })
