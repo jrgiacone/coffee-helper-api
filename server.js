@@ -3,6 +3,7 @@ const app = express()
 const MongoClient = require('mongodb').MongoClient
 const cors = require('cors')
 const { response } = require('express')
+const { ObjectID } = require('bson')
 app.use(cors())
 const PORT = 3001
 require('dotenv').config()
@@ -162,6 +163,18 @@ app.post('/addJournal', (req, res) => {
     // console.log(res.json())
     // res.json()
     // res.redirect('/coffee.html')
+  })
+  .catch(error => console.error(error))
+})
+
+app.delete('/deleteJournal/:id', (req, res) => {
+  console.log(req);
+  db.collection('coffee').deleteOne({_id: new ObjectID(req.params.id)})
+  .then(() => {
+    // console.log(result)
+    res.json()
+    console.log('deleted')
+    // response.json('deleted')
   })
   .catch(error => console.error(error))
 })

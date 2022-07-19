@@ -1,21 +1,26 @@
 import { useEffect, useState } from "react";
+import Journals from "./Journals";
 const Form = () => {
   const [notes, setNotes] = useState("");
   const [isPending, setIsPending] = useState(false);
   const [data, setData] = useState([]);
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     const coffee = { notes };
     setIsPending(true);
 
-    fetch("http://localhost:3001/addJournal", {
+    // addJournal({notes})
+
+    await fetch("http://localhost:3001/addJournal", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(coffee),
     }).then(() => {
       setIsPending(false);
     });
+
+    addJournal(notes)
   };
 
   useEffect(() => {
@@ -30,17 +35,34 @@ const Form = () => {
     fetchData();
   }, []);
 
+  const onDelete = async (id) => {
+    setData(data.filter((data) => data._id !== id))
+    await fetch(`http://localhost:3001/deleteJournal/${id}`, {
+      method: "DELETE",
+      // body: JSON.stringify(id)
+    }).then(console.log('deleted'))
+    .catch(error => console.error(error))
+  }
+
+  const addJournal = async (notes) => {
+    const res = await fetch('http://localhost:3001/getJournal');
+
+    const data = await res.json();
+    setData([...data],data)
+  }
+
 
     // return data
   
 
   return (
     <div>
-      <>
+      {/* <>
       {data.map((e) => {
         return <h3 key={e._id}>{e.notes}</h3>
       })}
-      </>
+      </> */}
+      <Journals data={data} onDelete={onDelete}></Journals> 
       <form onSubmit={onSubmit}>
         <input
           type="text"
