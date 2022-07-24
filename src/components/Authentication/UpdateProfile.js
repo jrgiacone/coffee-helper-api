@@ -21,22 +21,45 @@ const UpdateProfile = () => {
 
     const promises = []
     setLoading(true)
-    setError('')
+    setError("")
 
-    if(emailRef.current.value !== currentUser.email) {
+    if (emailRef.current.value !== currentUser.email) {
       promises.push(updateEmail(emailRef.current.value))
     }
-    if(passwordRef.current.value !== currentUser.password) {
+    if (passwordRef.current.value) {
       promises.push(updatePassword(passwordRef.current.value))
     }
 
-    Promise.all(promises).then(() =>  {
-      navigate('/' , {replace: true})
-    }).catch(() => {
-      setError('Failed to update account')
-    }).finally(() => {
-      setLoading(false)
-    })
+    Promise.all(promises)
+      .then(() => {
+        navigate("/", {replace: true})
+      })
+      .catch(() => {
+        setError("Failed to update account")
+      })
+      .finally(() => {
+        setLoading(false)
+      })
+  
+
+    // const promises = []
+    // setLoading(true)
+    // setError('')
+
+    // if(emailRef.current.value !== currentUser.email) {
+    //   promises.push(updateEmail(emailRef.current.value))
+    // }
+    // if(passwordRef.current.value !== currentUser.password) {
+    //   promises.push(updatePassword(passwordRef.current.value))
+    // }
+
+    // Promise.all(promises).then(() =>  {
+    //   navigate('/' , {replace: true})
+    // }).catch(() => {
+    //   setError('Failed to update account')
+    // }).finally(() => {
+    //   setLoading(false)
+    // })
 
     try{
       // await signup(emailRef.current.value, passwordRef.current.value)

@@ -1,11 +1,13 @@
 // import Coffee from "../Coffee";
 // import { useState } from "react";
 import { Link } from "react-router-dom";
+import Nav from "./Nav";
 
 const Selection = () => {
   // const [maker, newMaker] = useState('coffee');
   return (
     <section>
+      <Nav />
       <Link
         to="/coffee"
         onClick={() => sessionStorage.setItem("selection", "v60")}
