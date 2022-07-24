@@ -9,17 +9,6 @@ import Coffee from "./components/Coffee";
 // import CoffeeMakers from "./components/coffeeMakers";
 
 function App() {
-  // const [coffee] = useState([])
-
-  // useEffect(() => {
-  //   const fetchApi = async () => {
-  //     const res = await fetch("http://localhost:3001/api");
-  //     const data = await res.json();
-  //     console.log(data);
-  //   };
-
-  //   fetchApi();
-  // }, []);
 
   return (
     <Router>

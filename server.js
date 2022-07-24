@@ -196,4 +196,3 @@ app.delete('/deleteJournal/:id', (req, res) => {
 app.listen(process.env.PORT || PORT, () =>{
   console.log(`Listening on Port ${PORT}`)
 })
-

@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
 import Journals from "./Journals";
+import { useAuth } from "../contexts/AuthContext";
+
 const Form = () => {
   const [notes, setNotes] = useState("");
   const [isPending, setIsPending] = useState(false);
   const [data, setData] = useState([]);
+  const { currentUser } = useAuth()
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    const coffee = { notes };
+    const coffee = { "notes": notes };
     setIsPending(true);
 
     // addJournal({notes})

@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import Slider from "./Slider";
 import StopWatch from "./StopWatch";
 import Form from "./Form";
+import { useAuth } from "../contexts/AuthContext"
+
 // import Selection from "./Selection";
 
 const Coffee = ({maker}) => {
@@ -13,6 +15,7 @@ const Coffee = ({maker}) => {
   const [recWater, setRecWater] = useState('');
   const [ratio, setRatio] = useState(1/14);
   const [value, setValue] = useState('');
+  const {currentUser} = useAuth()
 
   useEffect(() => {
     const fetchApi = async () => {
@@ -24,7 +27,7 @@ const Coffee = ({maker}) => {
       //   `http://localhost:3001/api/${maker}}`
       // );
       const data = await res.json();
-      // console.log(data);
+      console.log(data);
       setName(data['Name'])
       setMax(data['Maximum Coffee (g)']);
       setMin(data['Minimum Coffee (g)']);
@@ -56,6 +59,7 @@ const Coffee = ({maker}) => {
   return (
     <div>
       <h4>{name}</h4>
+      <h2>{JSON.stringify(currentUser.uid)}</h2>
       <select>
         <option onClick={() => setRatio(1/14)} value="1/14">1/14 ml</option>
         <option onClick={() => setRatio(1/15)} value="1/14">1/15 ml</option>
