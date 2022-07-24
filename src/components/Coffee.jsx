@@ -4,7 +4,7 @@ import Slider from "./Slider";
 import StopWatch from "./StopWatch";
 import Form from "./Form";
 import { useAuth } from "../contexts/AuthContext"
-
+import Nav from "./Nav";
 // import Selection from "./Selection";
 
 const Coffee = ({maker}) => {
@@ -58,6 +58,7 @@ const Coffee = ({maker}) => {
 
   return (
     <div>
+      <Nav />
       <h4>{name}</h4>
       <h2>{JSON.stringify(currentUser.uid)}</h2>
       <select>

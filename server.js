@@ -139,8 +139,8 @@ app.get('/api/:name', (req, res) => {
 //   }).catch(error => console.error(error))
 // }
 
-app.get('/getJournal', (req, res) => {
-  db.collection('coffee').find({}).toArray()
+app.get('/getJournal/:userid', (req, res) => {
+  db.collection(req.params.userid).find({}).toArray()
   .then(result => {
     // res.send(result)
     res.json(result)
@@ -154,9 +154,9 @@ app.get('/getJournal', (req, res) => {
 //   })
 // })
 
-app.post('/addJournal', (req, res) => {
+app.post('/addJournal/:userid', (req, res) => {
   console.log('request recieved')
-  db.collection('coffee').insertOne({notes: req.body.notes})
+  db.collection(req.params.userid).insertOne({notes: req.body.notes, user_uid: req.body.user_uid})
   .then(() => {
     res.status(201).json('This was added!')
     // console.log('note added')
@@ -167,9 +167,10 @@ app.post('/addJournal', (req, res) => {
   .catch(error => console.error(error))
 })
 
-app.delete('/deleteJournal/:id', (req, res) => {
-  console.log(req);
-  db.collection('coffee').deleteOne({_id: new ObjectID(req.params.id)})
+app.delete('/deleteJournal/:id&:userid', (req, res) => {
+  console.log(req.params.id);
+  console.log(req.params.userid)
+  db.collection(req.params.userid).deleteOne({_id: new ObjectID(req.params.id)})
   .then(() => {
     // console.log(result)
     res.json()

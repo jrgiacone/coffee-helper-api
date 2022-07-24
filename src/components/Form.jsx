@@ -10,12 +10,12 @@ const Form = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    const coffee = { "notes": notes };
+    const coffee = { "notes": notes, "user_uid": currentUser.uid };
     setIsPending(true);
 
     // addJournal({notes})
 
-    await fetch("http://localhost:3001/addJournal", {
+    await fetch(`http://localhost:3001/addJournal/${currentUser.uid}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(coffee),
@@ -28,7 +28,7 @@ const Form = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch("http://localhost:3001/getJournal");
+      const res = await fetch(`http://localhost:3001/getJournal/${currentUser.uid}`);
 
       const data = await res.json();
       // console.log(data)
@@ -40,7 +40,7 @@ const Form = () => {
 
   const onDelete = async (id) => {
     setData(data.filter((data) => data._id !== id))
-    await fetch(`http://localhost:3001/deleteJournal/${id}`, {
+    await fetch(`http://localhost:3001/deleteJournal/${id}&${currentUser.uid}`, {
       method: "DELETE",
       // body: JSON.stringify(id)
     }).then(console.log('deleted'))
@@ -48,7 +48,7 @@ const Form = () => {
   }
 
   const addJournal = async (notes) => {
-    const res = await fetch('http://localhost:3001/getJournal');
+    const res = await fetch(`http://localhost:3001/getJournal/${currentUser.uid}`);
 
     const data = await res.json();
     setData([...data],data)
