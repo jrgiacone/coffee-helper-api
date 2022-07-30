@@ -60,7 +60,7 @@ const Coffee = ({maker}) => {
     <div>
       <Nav />
       <h4>{name}</h4>
-      <h2>{JSON.stringify(currentUser.uid)}</h2>
+      {/* <h2>{JSON.stringify(currentUser.uid)}</h2> */}
       <select>
         <option onClick={() => setRatio(1/14)} value="1/14">1/14 ml</option>
         <option onClick={() => setRatio(1/15)} value="1/14">1/15 ml</option>

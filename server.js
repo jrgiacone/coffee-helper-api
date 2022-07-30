@@ -139,8 +139,8 @@ app.get('/api/:name', (req, res) => {
 //   }).catch(error => console.error(error))
 // }
 
-app.get('/getJournal/:userid', (req, res) => {
-  db.collection(req.params.userid).find({}).toArray()
+app.get('/getJournal/:userid&:selection', (req, res) => {
+  db.collection(req.params.userid).find({selection: req.params.selection}).toArray()
   .then(result => {
     // res.send(result)
     res.json(result)
@@ -156,7 +156,7 @@ app.get('/getJournal/:userid', (req, res) => {
 
 app.post('/addJournal/:userid', (req, res) => {
   console.log('request recieved')
-  db.collection(req.params.userid).insertOne({notes: req.body.notes, user_uid: req.body.user_uid})
+  db.collection(req.params.userid).insertOne({notes: req.body.notes, selection: req.body.selection})
   .then(() => {
     res.status(201).json('This was added!')
     // console.log('note added')

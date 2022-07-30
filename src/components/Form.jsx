@@ -10,7 +10,7 @@ const Form = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    const coffee = { "notes": notes, "user_uid": currentUser.uid };
+    const coffee = { "notes": notes, "selection": sessionStorage.getItem('selection') };
     setIsPending(true);
 
     // addJournal({notes})
@@ -28,7 +28,7 @@ const Form = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(`http://localhost:3001/getJournal/${currentUser.uid}`);
+      const res = await fetch(`http://localhost:3001/getJournal/${currentUser.uid}&${sessionStorage.getItem('selection')}`);
 
       const data = await res.json();
       // console.log(data)
@@ -36,7 +36,7 @@ const Form = () => {
 
     }
     fetchData();
-  }, []);
+  }, [currentUser.uid]);
 
   const onDelete = async (id) => {
     setData(data.filter((data) => data._id !== id))
@@ -48,7 +48,7 @@ const Form = () => {
   }
 
   const addJournal = async (notes) => {
-    const res = await fetch(`http://localhost:3001/getJournal/${currentUser.uid}`);
+    const res = await fetch(`http://localhost:3001/getJournal/${currentUser.uid}&${sessionStorage.getItem('selection')}`);
 
     const data = await res.json();
     setData([...data],data)
