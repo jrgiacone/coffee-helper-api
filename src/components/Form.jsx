@@ -8,11 +8,16 @@ const Form = ({ slider, ratio, recWater, time }) => {
   const [data, setData] = useState([]);
   const { currentUser } = useAuth();
 
+  const current = new Date();
+  const date = `${current.getMonth()}/${current.getDate()}/${current.getFullYear()}`
+
   const onSubmit = async (e) => {
+    console.log(date)
     const ratioConv = 1 / ratio;
-    console.log(time);
+    // console.log(time);
     e.preventDefault();
     const coffee = {
+      date: date,
       notes: notes,
       ratio: `1/${ratioConv}`,
       recWater: recWater,

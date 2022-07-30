@@ -16,11 +16,12 @@ const Journals = ({ data, onDelete }) => {
           //   ></FaTimes>
           // </h3>
           <ul key={e._id} className='entryList'>
+            <li> {e.date}   - </li>
             <li>Notes: {e.notes}</li>
-            <li> Time: {e.time}</li>
-            <li> Water: {e.recWater} (ml)</li>
-            <li> Ratio: {e.ratio}</li>
-            <li> Coffee: {e.coffeeGrams} (g)</li>
+            <li>Time: {e.time}</li>
+            <li>Water: {e.recWater} (ml)</li>
+            <li>Ratio: {e.ratio}</li>
+            <li>Coffee: {e.coffeeGrams} (g)</li>
             <li>
              <FaTimes
                 style={{ color: "red", cursor: "pointer" }}

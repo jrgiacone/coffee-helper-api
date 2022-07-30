@@ -185,6 +185,7 @@ app.post("/addJournal/:userid", (req, res) => {
   console.log("request recieved");
   db.collection(req.params.userid)
     .insertOne({
+      date: req.body.date,
       notes: req.body.notes,
       ratio: req.body.ratio,
       recWater: req.body.recWater,
