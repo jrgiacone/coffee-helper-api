@@ -2,15 +2,24 @@ import { useEffect, useState } from "react";
 import Journals from "./Journals";
 import { useAuth } from "../contexts/AuthContext";
 
-const Form = () => {
+const Form = ({ slider, ratio, recWater, time }) => {
   const [notes, setNotes] = useState("");
   const [isPending, setIsPending] = useState(false);
   const [data, setData] = useState([]);
-  const { currentUser } = useAuth()
+  const { currentUser } = useAuth();
 
   const onSubmit = async (e) => {
+    const ratioConv = 1 / ratio;
+    console.log(time);
     e.preventDefault();
-    const coffee = { "notes": notes, "selection": sessionStorage.getItem('selection') };
+    const coffee = {
+      notes: notes,
+      ratio: `1/${ratioConv}`,
+      recWater: recWater,
+      coffeeGrams: slider,
+      selection: sessionStorage.getItem("selection"),
+      time: time,
+    };
     setIsPending(true);
 
     // addJournal({notes})
@@ -23,40 +32,49 @@ const Form = () => {
       setIsPending(false);
     });
 
-    addJournal(notes)
+    addJournal(notes);
   };
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(`http://localhost:3001/getJournal/${currentUser.uid}&${sessionStorage.getItem('selection')}`);
+      const res = await fetch(
+        `http://localhost:3001/getJournal/${
+          currentUser.uid
+        }&${sessionStorage.getItem("selection")}`
+      );
 
       const data = await res.json();
       // console.log(data)
-      setData(data)
-
-    }
+      setData(data);
+    };
     fetchData();
   }, [currentUser.uid]);
 
   const onDelete = async (id) => {
-    setData(data.filter((data) => data._id !== id))
-    await fetch(`http://localhost:3001/deleteJournal/${id}&${currentUser.uid}`, {
-      method: "DELETE",
-      // body: JSON.stringify(id)
-    }).then(console.log('deleted'))
-    .catch(error => console.error(error))
-  }
+    setData(data.filter((data) => data._id !== id));
+    await fetch(
+      `http://localhost:3001/deleteJournal/${id}&${currentUser.uid}`,
+      {
+        method: "DELETE",
+        // body: JSON.stringify(id)
+      }
+    )
+      .then(console.log("deleted"))
+      .catch((error) => console.error(error));
+  };
 
   const addJournal = async (notes) => {
-    const res = await fetch(`http://localhost:3001/getJournal/${currentUser.uid}&${sessionStorage.getItem('selection')}`);
+    const res = await fetch(
+      `http://localhost:3001/getJournal/${
+        currentUser.uid
+      }&${sessionStorage.getItem("selection")}`
+    );
 
     const data = await res.json();
-    setData([...data],data)
-  }
+    setData([...data], data);
+  };
 
-
-    // return data
-  
+  // return data
 
   return (
     <div>
@@ -65,7 +83,7 @@ const Form = () => {
         return <h3 key={e._id}>{e.notes}</h3>
       })}
       </> */}
-      <Journals data={data} onDelete={onDelete}></Journals> 
+      <Journals data={data} onDelete={onDelete}></Journals>
       <form onSubmit={onSubmit}>
         <input
           type="text"

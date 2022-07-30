@@ -15,7 +15,8 @@ const Coffee = ({maker}) => {
   const [recWater, setRecWater] = useState('');
   const [ratio, setRatio] = useState(1/14);
   const [value, setValue] = useState('');
-  const {currentUser} = useAuth()
+  const [time, setTime] = useState('0');
+  // const {currentUser} = useAuth()
 
   useEffect(() => {
     const fetchApi = async () => {
@@ -55,6 +56,10 @@ const Coffee = ({maker}) => {
     setValue(value)
   }
 
+  const getTime = (value) => {
+    setTime(value)
+  }
+
 
   return (
     <div>
@@ -69,8 +74,8 @@ const Coffee = ({maker}) => {
       </select>
       <Slider max={max} min={min} rec={rec} getSliderValue={(value) => getSliderValue(value)}/>
       <h6>{recWater}</h6>
-      <StopWatch />
-      <Form />
+      <StopWatch getTime={(value) => getTime(value)}/>
+      <Form slider={value} ratio={ratio} recWater={recWater} time={time}/>
       <Link to="/">Go Back</Link>
     </div>
   );
