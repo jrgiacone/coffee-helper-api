@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+# My Awesome Coffee Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+I absolutely love coffee and it is one of my passions. One issue I always ran into was having a one stop shop to track, journal, and dial in the process to make the perfect cup. I made this to tackle that problem!
 
-## Available Scripts
+## How It's Made
 
-In the project directory, you can run:
+Tech used: HTML, CSS, JavaScript, React, MongoDB, Node, Express, Firebase
 
-### `npm start`
+I really wanted to practice and learn React and solve my ever going coffee problem.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The first thing I did was create my coffee-api within node. This coffee api has several coffee makers such as an areopress, v60, french press, etc. For each I used James Hoffmann's coffee recommendations for the recommended coffee amounts for each maker. From there I also set maxes and mins that could be used by the application, along with some facts regarding the difficulty. I used express to handle the incoming and outgoing requests. I set up my routes to receive the parameter for the userUid.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Then I tackled user Authentication because I wanted to be able to store data on a per user level without each user having access to eachother's data. React's context allowed me to do this. I had first tried Auth0 which also worked great, but at the time I did not know how to use context so I switched over to Firebase and implemented it with context. The way I set up my context folder it should allow for plug and play with other Auth providers such as Auth0. Once authentication was working and my users all had an identifier (userUid) then I started working.
 
-### `npm test`
+The application allows you to select the coffee maker from the get go. I ran into some issues storing the selection across links to the next page. I solved this using the browser's sessionStorage feature. Using the sessionStorage, I request the coffee maker's information from my API. Using the information received I set the starting point of the coffee gram slider bar and utilize the useState parameter to set new values along with useEffect to update the DOM.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+On each page after you have selected your grams of coffee in the attempt, it will recommend ml of water to use based on a selectable ratio. Once you are ready you can start the timer. Once a user is done. They can pause the timer and write a comment on how it tastes. when ready they can submit. This will store in the database the time, ml of water, g of coffee, ratio used, and a note about it (i.e. was the coffee sour, bitter, perfect, or anything really). The user can also just submit and come back to it later and update the comment.
 
-### `npm run build`
+### Optimizations
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Forthcoming...
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Lessons Learned: 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. React simplifies so many things that would have taken significantly more work in vanilla javascript.
+2. React's context allowed me to use Authentication across each page verses passing it through each component. A problem I ran into before context was accessing authentication across a route or link to another page that was not a component of that page. Context solved this issue.
+3. useEffect, useState, and useRef are pretty amazing hooks. I'm sure there are plenty more, and I will need to dig through the documentation to learn, but I am looking forward to it!
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
