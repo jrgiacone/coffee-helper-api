@@ -3,7 +3,7 @@ import Journals from "./Journals";
 import { useAuth } from "../contexts/AuthContext";
 
 const Form = ({ slider, ratio, recWater, time }) => {
-  const [notes, setNotes] = useState(undefined);
+  const [notes, setNotes] = useState('');
   const [isPending, setIsPending] = useState(false);
   const [data, setData] = useState([]);
   const { currentUser } = useAuth();
@@ -11,8 +11,6 @@ const Form = ({ slider, ratio, recWater, time }) => {
   const onUpdate = async (id) => {
     setData(data.filter((data) => data._id !== id));
     const newNote = prompt ("Enter the new note: ")
-    console.log(id)
-    console.log(JSON.stringify(newNote))
 
     const res = await fetch(
       `http://localhost:3001/updateJournal/${id}&${currentUser.uid}`,
