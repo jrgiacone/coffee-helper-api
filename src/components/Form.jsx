@@ -3,18 +3,32 @@ import Journals from "./Journals";
 import { useAuth } from "../contexts/AuthContext";
 
 const Form = ({ slider, ratio, recWater, time }) => {
-  const [notes, setNotes] = useState("");
+  const [notes, setNotes] = useState(undefined);
   const [isPending, setIsPending] = useState(false);
   const [data, setData] = useState([]);
   const { currentUser } = useAuth();
 
-  const current = new Date();
-  const date = `${current.getMonth()}/${current.getDate()}/${current.getFullYear()}`
+  const onUpdate = async (id) => {
+    setData(data.filter((data) => data._id !== id));
+    const newNote = prompt ("Enter the new note: ")
+    console.log(id)
+    console.log(JSON.stringify(newNote))
+
+    const res = await fetch(
+      `http://localhost:3001/updateJournal/${id}&${currentUser.uid}`,
+      {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({newNote: newNote}),
+      }
+    )
+      addJournal()
+  }
 
   const onSubmit = async (e) => {
-    console.log(date)
+    const current = new Date();
+    const date = `${current.getMonth()}/${current.getDate()}/${current.getFullYear()}`
     const ratioConv = 1 / ratio;
-    // console.log(time);
     e.preventDefault();
     const coffee = {
       date: date,
@@ -88,7 +102,7 @@ const Form = ({ slider, ratio, recWater, time }) => {
         return <h3 key={e._id}>{e.notes}</h3>
       })}
       </> */}
-      <Journals data={data} onDelete={onDelete}></Journals>
+      <Journals data={data} onDelete={onDelete} onUpdate={onUpdate}></Journals>
       <form onSubmit={onSubmit}>
         <input
           type="text"

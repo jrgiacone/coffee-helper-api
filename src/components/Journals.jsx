@@ -1,5 +1,8 @@
 import { FaTimes } from "react-icons/fa";
-const Journals = ({ data, onDelete }) => {
+import EditOrUpdate from "./EditOrUpdate";
+const Journals = ({ data, onDelete, onUpdate }) => {
+
+
   return (
     <div>
       {data.map((e) => {
@@ -28,6 +31,7 @@ const Journals = ({ data, onDelete }) => {
                 onClick={() => onDelete(e._id)}
               ></FaTimes>
             </li>
+            <EditOrUpdate id={e._id} onUpdate={onUpdate}/>
           </ul>
         );
       })}

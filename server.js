@@ -182,7 +182,7 @@ app.get("/getJournal/:userid&:selection", (req, res) => {
 // })
 
 app.post("/addJournal/:userid", (req, res) => {
-  console.log("request recieved");
+  console.log("request received");
   db.collection(req.params.userid)
     .insertOne({
       date: req.body.date,
@@ -203,9 +203,22 @@ app.post("/addJournal/:userid", (req, res) => {
     .catch((error) => console.error(error));
 });
 
+app.put("/updateJournal/:id&:userid", (req, res) => {
+  db.collection(req.params.userid)
+    .updateOne({_id: new ObjectID(req.params.id)},{
+      $set: {
+        notes: req.body.newNote
+      }
+    })
+    .then(() => {
+      res.json()
+    })
+    .catch(error => console.log(error))
+})
+
 app.delete("/deleteJournal/:id&:userid", (req, res) => {
-  console.log(req.params.id);
-  console.log(req.params.userid);
+  // console.log(req.params.id);
+  // console.log(req.params.userid);
   db.collection(req.params.userid)
     .deleteOne({ _id: new ObjectID(req.params.id) })
     .then(() => {
@@ -216,20 +229,6 @@ app.delete("/deleteJournal/:id&:userid", (req, res) => {
     })
     .catch((error) => console.error(error));
 });
-
-// app.post('/addJournal', (req, res) => {
-//   console.log('working')
-// })
-
-// app.post('/addJournal', (req, res) => {
-//     db.collection('coffee').insertOne({stageName: req.body.stageName,
-//     birthName: request.body.birthName, likes: 0})
-//     .then(result => {
-//         console.log('Rapper Added')
-//         res.redirect('/')
-//     })
-//     .catch(error => console.error(error))
-// })
 
 app.listen(process.env.PORT || PORT, () => {
   console.log(`Listening on Port ${PORT}`);
