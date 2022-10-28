@@ -3,11 +3,11 @@ import { useEffect, useState } from "react";
 import Slider from "./Slider";
 import StopWatch from "./StopWatch";
 import Form from "./Form";
-import { useAuth } from "../contexts/AuthContext"
+// import { useAuth } from "../contexts/AuthContext"
 import Nav from "./Nav";
 // import Selection from "./Selection";
 
-const Coffee = ({maker}) => {
+const Coffee = () => {
   const [name, setName] = useState('');
   const [max, setMax] = useState('');
   const [min, setMin] = useState('');

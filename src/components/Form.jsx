@@ -12,7 +12,7 @@ const Form = ({ slider, ratio, recWater, time }) => {
     setData(data.filter((data) => data._id !== id));
     const newNote = prompt ("Enter the new note: ")
 
-    const res = await fetch(
+    await fetch(
       `http://localhost:3001/updateJournal/${id}&${currentUser.uid}`,
       {
         method: "PUT",
@@ -80,7 +80,7 @@ const Form = ({ slider, ratio, recWater, time }) => {
       .catch((error) => console.error(error));
   };
 
-  const addJournal = async (notes) => {
+  const addJournal = async () => {
     const res = await fetch(
       `http://localhost:3001/getJournal/${
         currentUser.uid

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
-import Dashboard from "./Dashboard";
+// import Profile from "./Profile";
 
 const Nav = () => {
   const { currentUser } = useAuth();

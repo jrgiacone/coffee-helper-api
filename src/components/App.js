@@ -9,7 +9,7 @@ import UpdateProfile from "./Authentication/UpdateProfile";
 import Header from "./Header";
 import Selection from "./Selection";
 import Coffee from "./Coffee";
-import Dashboard from "./Dashboard";
+import Profile from "./Profile";
 
 function App() {
   return (
@@ -19,12 +19,12 @@ function App() {
             <Router>
               <AuthProvider>
                 <Routes>
-                  {/* <Route exact path ='/' element={<PrivateRoute><Dashboard /></PrivateRoute>} /> */}
+                  {/* <Route exact path ='/' element={<PrivateRoute><Profile /></PrivateRoute>} /> */}
                   <Route path='/' exact element={<PrivateRoute><Header /> <Selection /></PrivateRoute>} />
                   <Route path ='/update-profile' element={<PrivateRoute><UpdateProfile /></PrivateRoute>} />
                   <Route path="/signup" element={<Signup/>} />
                   <Route path="/login" element={<Login />} />
-                  <Route path="/profile" element={<Dashboard />} />
+                  <Route path="/profile" element={<Profile />} />
                   <Route path="/forgot-password" element={<ForgotPassword />} />
                   <Route path="/coffee" element={<Coffee />} />
                 </Routes>

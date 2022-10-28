@@ -4,7 +4,7 @@ import { useAuth } from "../contexts/AuthContext"
 import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 
-const Dashboard = () => {
+const Profile = () => {
   const [error, setError] = useState('')
   const { currentUser, logout } = useAuth()
   const navigate = useNavigate();
@@ -38,4 +38,4 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard
+export default Profile
