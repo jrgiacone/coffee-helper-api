@@ -1,4 +1,3 @@
-import { Container } from "react-bootstrap";
 import AuthProvider from "../contexts/AuthContext";
 import Signup from "./Authentication/Signup";
 import Login from "./Authentication/Login";
@@ -10,17 +9,20 @@ import Header from "./Header";
 import Selection from "./Selection";
 import Coffee from "./Coffee";
 import Profile from "./Profile";
+import Nav from "./Nav" 
 
 function App() {
   return (
-      <Container className="d-flex align-items-center justify-content-center"
-        style={ {minHeight: "100vh" }}>
-          <div className="w-300" style= {{ maxWidth: "800px" }}>
             <Router>
               <AuthProvider>
                 <Routes>
                   {/* <Route exact path ='/' element={<PrivateRoute><Profile /></PrivateRoute>} /> */}
-                  <Route path='/' exact element={<PrivateRoute><Header /> <Selection /></PrivateRoute>} />
+                  <Route path='/' exact element={
+                      <PrivateRoute> 
+                        <Nav />
+                        <Header /> 
+                        <Selection />
+                      </PrivateRoute>} />
                   <Route path ='/update-profile' element={<PrivateRoute><UpdateProfile /></PrivateRoute>} />
                   <Route path="/signup" element={<Signup/>} />
                   <Route path="/login" element={<Login />} />
@@ -30,8 +32,6 @@ function App() {
                 </Routes>
               </AuthProvider>
             </Router>
-          </div>
-      </Container>
   );
 }
 
